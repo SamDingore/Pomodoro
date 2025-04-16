@@ -9,9 +9,6 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "Pomodoro Timer",
   description: "A modern Pomodoro timer app with session tracking",
-  icons: {
-    icon: "/favicon.ico",
-  },
 }
 
 export default function RootLayout({
@@ -21,6 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
@@ -33,3 +35,4 @@ export default function RootLayout({
 
 
 import './globals.css'
+import Head from "next/head"
